@@ -3,7 +3,17 @@ import sys
 import pygame
 import os
 from pygame.locals import *
-
+class unit(object):
+    def __init__ (self, sizex, sizey=None ,screensize=SCREENSIZE):
+        self.x=sizex
+        if sizey==None:
+            self.y=self.x
+        else:
+            self.y=sizey
+        self.gridsize=(screensize[0]/self.x,screensize[1]/self.y)
+    def __str__ (self):
+        return str(self.x)+"*"+str(self.y)
+        
 def ShowMenu():
     #Draw Title
     #print SCREENSIZE
@@ -74,15 +84,33 @@ def MenuState():
             
             
 
-
+class Player(Nr,Type):
+    def __init__:
+        self.Nr=Nr
+        self.Type=Type #0=human,1=CPU
+        self.Points=0
+        self.Pos=U.gridsize[1]/2
+        self.Lenght=6
+    def PerformMove(Events):
+        ##check eventqueue
+class Ball:
+    def __init__:
+        self.size=1
+        self.directionvector=[2,2]
+    def CheckPos():
+        #check if collision with players or behind them
 def GameState():
-    print "Game"
+    #initialise players
+    #Player1=Player(1,0)
+    #Player2=Player(2,0)
+    events=pygame.event.get()
     
 
 SCREENSIZE=(600,600)
 #initialize graphics
 pygame.init()
-screen=pygame.display.set_mode(SCREENSIZE,0,32) 
+U=unit(10)
+screen=pygame.display.set_mode((U.gridsize[0]*U.x,U.gridsize[1]*U.y),0,32)
 pygame.display.set_caption("PyPong","PyPong") #Set title
 State=0 #0 is menu 1 is game
 Opponent=0#0 is human, 1 is CPU
